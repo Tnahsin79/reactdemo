@@ -7,14 +7,15 @@ class Counter extends React.Component {
         }
     }
     plus = () => {
-        this.setState({ clickCount: this.state.clickCount+1 })
+        const count=this.state.clickCount;
+        this.setState((previousState)=>({clickCount:previousState.clickCount+1}))
     }
     minus = () => {
         if(this.state.clickCount>0)
-        this.setState({ clickCount: this.state.clickCount-1 })
+        this.setState((previousState)=>({clickCount:previousState.clickCount-1}))
     }
     render() {
-        const { clickCount,name,age } = this.state;
+        const {clickCount} = this.state;
         return (
             <div>
                 <button onClick={this.plus}>+</button>
